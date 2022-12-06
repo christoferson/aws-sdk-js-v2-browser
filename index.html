@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1268.0.min.js"></script>
+        <script src="js/aws.js"></script>
+    </head>
+
+    <body>
+        <h1>AWS Javascript SDK V2</h1>
+        Credential.Region: <span id="credentials_region"></span> <br/>
+        Credential.AccessKey: <span id="credentials_access_key"></span> <br/>
+
+        <script>
+            AWS.config.getCredentials(function(err) {
+            if (err) { console.log(err.stack); 
+            } else {
+                //console.log("Access key:", AWS.config.credentials.accessKeyId);
+                document.getElementById("credentials_region").innerHTML = AWS.config.region;
+                document.getElementById("credentials_access_key").innerHTML = AWS.config.credentials.accessKeyId;
+            }
+            });
+        </script>
+    </body>
+
+</html>
